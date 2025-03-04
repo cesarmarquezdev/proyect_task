@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "description": "Hacer la compra",
+        "status": "pendiente"
+    },
+    {
+        "id": 2,
+        "description": "Llamar al banco",
+        "status": "completada"
+    },
+    {
+        "id": 3,
+        "description": "jugar",
+        "status": "pendiente"
+    }
+]
