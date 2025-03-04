@@ -2,7 +2,7 @@
     {
         "id": 1,
         "description": "Hacer la compra",
-        "status": "pendiente"
+        "status": "completada"
     },
     {
         "id": 2,

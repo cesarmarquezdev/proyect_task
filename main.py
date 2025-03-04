@@ -1,5 +1,5 @@
 from task_repository import get_data, get_id
-from task_service import add_task
+from task_service import add_task, update_list_in_db , delete_task
 data = get_data()
 
 final_check ="s"
@@ -52,5 +52,14 @@ while final_check == "s":
         if option == 3:
             data = get_data()
             id = int(input("Ingrese el ID de la tarea a completar: "))
-            get_id(id)
-          
+            
+            update_list_in_db(id)
+            
+        if option == 4:
+            data = get_data()
+            id = int(input("Ingrese el ID de la tarea a eliminar: "))
+            delete_task(id)
+            
+        if option == 5:
+            loop_check = "n" 
+            final_check = "n"
