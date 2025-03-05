@@ -25,17 +25,21 @@ while final_check == "s":
         option = int(option)
 
         if option == 1:
-            id = 0
-            desciption = str(input("Ingrese la descripción de la tarea: "))
-            if not desciption:
-                print("Descripcion de la tarea no validad, porfavor ingrese una valida")
-                
-            for i in data:
+            check_option = "s"
+            while check_option == "s":
+                id = 0
+                desciption = str(input("Ingrese la descripción de la tarea: "))
+                if not desciption:
+                    print("Descripcion de la tarea no validad, porfavor ingrese una valida")
+                    
+                for i in data:
+                    id += 1
                 id += 1
-            id += 1
-            new_task = {"id": id, "description": desciption, "status": "pendiente"}
-            add_task(new_task)
-            print("Tarea agregada con éxito. :) ")
+                new_task = {"id": id, "description": desciption, "status": "pendiente"}
+                add_task(new_task)
+                print("Tarea agregada con éxito. :) ")
+                
+                check_option = str(input("Desea agregar otra tarea s/n: "))
             
             
         if option == 2:
@@ -50,16 +54,29 @@ while final_check == "s":
                 
           
         if option == 3:
-            data = get_data()
-            id = int(input("Ingrese el ID de la tarea a completar: "))
-            
-            update_list_in_db(id)
-            
+            check_option = "s"
+            while check_option == "s":
+                data = get_data()
+                try:
+                    id =int(input("Ingrese el ID de la tarea a completar: ")) 
+                    update_list_in_db(id)
+                except ValueError:
+                    print("Ingrese un digito valido")
+                
+                check_option = str(input("Desea completar otra tarea s/n: "))
+                
         if option == 4:
-            data = get_data()
-            id = int(input("Ingrese el ID de la tarea a eliminar: "))
-            delete_task(id)
+            check_option = "s"
             
+            while check_option == "s":
+                
+                data = get_data()
+                try:
+                    id = int(input("Ingrese el ID de la tarea a eliminar: "))
+                    delete_task(id)
+                except ValueError:
+                    print("Ingrese un digito valido")
+                check_option = str(input("Desea eliminar otra tarea s/n: "))
         if option == 5:
             loop_check = "n" 
             final_check = "n"
