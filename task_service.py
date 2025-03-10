@@ -25,7 +25,7 @@ def update_list_in_db(task_id: int) -> bool:
     
     for task in data:
         if task["id"] == task_id:
-            task["estado"] = "completada"
+            task["status"] = "completada"
             print("Tarea marcada como completada.")
             break
     else:

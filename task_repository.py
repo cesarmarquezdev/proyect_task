@@ -8,7 +8,7 @@ def get_data() -> list:
     if not os.path.exists(FILE_PATH):
         print("El archivo no existe. Se creará uno nuevo con una tarea inicial.")
         new_task = input("Ingrese la descripción de la tarea: ")
-        new_data = [{"id": 1, "descripcion": new_task, "estado": "pendiente"}]
+        new_data = [{"id": 1, "description": new_task, "status": "pendiente"}]
         
         with open(FILE_PATH, 'w', encoding='utf-8') as file:
             json.dump(new_data, file, indent=4)
@@ -21,7 +21,7 @@ def get_data() -> list:
     except json.JSONDecodeError:
         print("Error al leer el archivo JSON. Se creará una nueva lista.")
         new_task = input("Ingrese la descripción de la tarea: ")
-        new_data = [{"id": 1, "descripcion": new_task, "estado": "pendiente"}]
+        new_data = [{"id": 1, "description": new_task, "status": "pendiente"}]
         
         with open(FILE_PATH, 'w', encoding='utf-8') as file:
             json.dump(new_data, file, indent=4)
@@ -33,7 +33,7 @@ def mark_task_completed(task_id: int):
     
     for task in data:
         if task_id == task["id"]:
-            task["estado"] = "completada"
+            task["status"] = "completada"
             print("Tarea marcada como completada.")
             
             with open(FILE_PATH, 'w', encoding='utf-8') as file:

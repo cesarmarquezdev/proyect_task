@@ -1,5 +1,5 @@
 from task_repository import get_data
-from task_service import add_task, update_task_status, delete_task
+from task_service import add_task, update_list_in_db, delete_task
 
 def show_menu():
     return """\n
@@ -59,7 +59,7 @@ def task_manager():
             while True:
                 show_tasks()
                 task_id = get_valid_id("Ingrese el ID de la tarea a completar: ")
-                update_task_status(task_id)
+                update_list_in_db(task_id)
                 print("Tarea marcada como completada.")
                 
                 if input("¿Desea completar otra tarea? (s/n): ").strip().lower() != "s":
